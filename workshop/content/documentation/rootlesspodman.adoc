@@ -38,7 +38,7 @@ You are now ready to proceed with these exercises.
 
 == Exercise: Basic Information
 
-Now have a look at the general container information.
+Download podman, buildah, skopeo.
 
 [{format_cmd_exec}]
 ----
