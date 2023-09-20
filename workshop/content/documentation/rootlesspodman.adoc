@@ -5,7 +5,7 @@
 
 Podman (the POD manager) is a tool for developing, managing, and running containers on your Linux systems.
 
-In this unit, we will get familiar with application containers and the podman CLI.  
+In this unit, we will get familiar with Rootless Podman containers and how to use podman, buildah and skopeo. 
 
 == Getting Started
 Exit to become student user.
