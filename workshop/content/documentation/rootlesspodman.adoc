@@ -442,7 +442,7 @@ IdleSinceHintMonotonic=77239965832
 Linger=yes
 ----
 
-{format_cmd_exec}]
+[{format_cmd_exec}]
 ----
 sudo systemctl reboot
 ----
@@ -454,7 +454,7 @@ Connection to node3 closed.
 
 Log back in and verify that the systemd daemon started the `mywebapp-demo` container, and that the web content is available.
 
-{format_cmd_exec}]
+[{format_cmd_exec}]
 ----
 ssh node3
 ----
