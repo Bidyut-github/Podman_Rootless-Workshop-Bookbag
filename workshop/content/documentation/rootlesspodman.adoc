@@ -55,6 +55,38 @@ You are now ready to proceed with these exercises.
 
 == Core Concepts
 
+Containerization provides many advantages for the software development and deployment:
+ * Portability
+ * Scalability
+ * Resource Efficiency
+ * Isolation
+ * Rapid Deployment
+ * Development Productivity
+ * Version Control and Rollbacks
+ * Collaboration and Sharing
+
+Red Hat Enterprise Linux provides a set of container tools that you can use to run containers in a single server:
+ * podman is a container runtime and command-line tool that manages containers and container images.
+ * skopeo inspects, copies, deletes, and signs images.
+ * buildah creates container images.
+These tools are compatible with the Open Container Initiative (OCI). With these tools, you can manage any Linux containers that OCI-compatible container engines create, such as Podman or Docker. These tools are designed to run containers under Red Hat Enterprise Linux on a single-node container host.
+
+Podman is a fully featured container engine from the container-tools meta-package to manage Open Container Initiative (OCI) containers and images.
+The container-tools meta-package contains required utilities to interact with containers and container images.
+Here is a list of the fundamental podman commands and their purpose:
+
+  * *podman images* - list images
+  * *podman ps* - lists running containers
+  * *podman pull* - pulls (copies) container image from repository (ie: redhat and/or docker hub)
+  * *podman run* - run a container
+  * *podman inspect* - view facts about a container
+  * *podman logs* - display logs of a container (can be used with --follow)
+  * *podman rm* - remove one or more containers
+  * *podman rmi* - remove one or more images
+  * *podman stop* - stops one or more containers
+  * *podman kill $(podman ps -q)* - kill all running containers
+  * *podman rm $(podman ps -a -q)* - deletes all stopped containers
+
 == Exercise: Basic Information
 
 Download podman, buildah, skopeo.
@@ -114,7 +146,7 @@ skopeo version 1.9.4-dev
 ----
 
 
-== Exercise: using podman, buildah and skopeo
+== Exercise: Using podman, buildah and skopeo as an unprivileged user 
 
 === Create an image from a container file (simple httpd web service)
 
