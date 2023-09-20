@@ -56,6 +56,7 @@ You are now ready to proceed with these exercises.
 == Core Concepts
 
 Containerization provides many advantages for the software development and deployment:
+
  * Portability
  * Scalability
  * Resource Efficiency
@@ -66,6 +67,7 @@ Containerization provides many advantages for the software development and deplo
  * Collaboration and Sharing
 
 Red Hat Enterprise Linux provides a set of container tools that you can use to run containers in a single server:
+
  * podman is a container runtime and command-line tool that manages containers and container images.
  * skopeo inspects, copies, deletes, and signs images.
  * buildah creates container images.
