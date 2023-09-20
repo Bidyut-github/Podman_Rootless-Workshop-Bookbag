@@ -97,7 +97,7 @@ skopeo version 1.9.4-dev
 
 == Exercise: using podman, buildah and skopeo
 
-=== Create an image from a container file (simple httpd web service):
+=== Create an image from a container file (simple httpd web service)
 
 Create a new container from httpd.
 
@@ -163,7 +163,7 @@ Storing signatures
 35e86afe15b0cd5fc52f8f42d57bc1964cba4afe899c336a00f0ed5640091f01
 ----
 
-=== Push to registry.
+=== Push to registry
 
 User your Quay ids to login.
 
@@ -196,7 +196,7 @@ Writing manifest to image destination
 Storing signatures
 ----
 
-===  Create the container by pulling the image from registry:
+===  Create the container by pulling the image from registry
 
 Inspect the image in the repository before pulling.
 
@@ -266,7 +266,7 @@ CONTAINER ID  IMAGE                                COMMAND           CREATED    
 0->80/tcp  mywebapp-demo
 ----
 
-=== Check if the web service is accessible using curl:
+=== Check if the web service is accessible using curl
 
 [{format_cmd_exec}]
 ----
@@ -278,7 +278,7 @@ curl -N localhost:8080
 <html><body><h1>Welcome to my web service</h1></body></html>
 ----
 
-=== Create a systemd service to get it started after system reboot automatically:
+=== Create a systemd service to get it started after system reboot automatically
 
 Create a systemd service file to manage the `mywebapp-demo` container.
 
@@ -293,7 +293,7 @@ Create the unit file for the `mywebapp-demo` container.
 [{format_cmd_exec}]
 ----
 podman generate systemd --name mywebapp-demo --files --new
----
+----
 
 [{format_cmd_output}]
 ----
