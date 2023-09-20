@@ -30,7 +30,7 @@ ssh node3
 # OS Version : RedHat 9.1
 # ---------------
 Activate the web console with: systemctl enable --now cockpit.socket
----
+----
 
 You are now ready to proceed with these exercises.
 
@@ -68,7 +68,7 @@ buildah --version
 [{format_cmd_output}]
 ----
 buildah version 1.27.3 (image-spec 1.0.2-dev, runtime-spec 1.0.2-dev)
----
+----
 
 Verify  the version of podman.
 
@@ -80,7 +80,7 @@ podman --version
 [{format_cmd_output}]
 ----
 podman version 4.2.0
----
+----
 
 Verify  the version of skopeo.
 
@@ -92,7 +92,7 @@ skopeo --version
 [{format_cmd_output}]
 ----
 skopeo version 1.9.4-dev
----
+----
 
 
 == Exercise: using podman, buildah and skopeo
@@ -118,7 +118,7 @@ Copying blob 9d28e265584b done
 Copying config 359570977a done
 Writing manifest to image destination
 Storing signatures
----
+----
 
 Create html directory.
 
@@ -139,14 +139,14 @@ echo "<html><body><h1>Welcome to my web service</h1></body></html>" | buildah ru
 [{format_cmd_output}]
 ----
 <html><body><h1>Welcome to my web service</h1></body></html>
----
+----
 
 Commit the changes to an image named mywebapp.
 
 [{format_cmd_exec}]
 ----
 buildah commit $container mywebapp
----
+----
 
 [{format_cmd_output}]
 ----
@@ -161,7 +161,7 @@ Copying config 35e86afe15 done
 Writing manifest to image destination
 Storing signatures
 35e86afe15b0cd5fc52f8f42d57bc1964cba4afe899c336a00f0ed5640091f01
----
+----
 
 === Push to registry.
 
@@ -177,7 +177,7 @@ buildah login quay.io
 Username: rh_sa_bsahu
 Password:
 Login Succeeded!
----
+----
 
 Push the image to registry using "buildah push mywebapp:latest docker://quay.io/<your quay user name>/mywebapp:latest"
 
@@ -194,7 +194,7 @@ Copying blob de32a61f011b done
 Copying config 35e86afe15 done
 Writing manifest to image destination
 Storing signatures
----
+----
 
 ===  Create the container by pulling the image from registry:
 
@@ -217,7 +217,7 @@ Execute skopeo inspect docker://quay.io/<your Quay userid>/mywebapp:latest
         "io.buildah.version": "1.27.3"
     },
    ... 
----
+----
 
 Pull the image from the repository.
 
@@ -239,7 +239,7 @@ Writing manifest to image destination
 Storing signatures
 35e86afe15b0cd5fc52f8f42d57bc1964cba4afe899c336a00f0ed5640091f01
 [student@node3 ~]$
----
+----
 
 Run it.
 
@@ -249,7 +249,7 @@ Execute podman run -d --name mywebapp-demo -p 8080:80 quay.io/<Your Quay user id
 ----
 [student@node3 ~]$ podman run -d --name mywebapp-demo -p 8080:80 quay.io/rh_sa_bsahu/mywebapp:latest
 2f022f995b92f7e225a9e303fc875b4e49c6e55b55c00fe5844069149a536df2
----
+----
 
 === Check the STATUS
 
@@ -264,7 +264,7 @@ CONTAINER ID  IMAGE                                COMMAND           CREATED    
            NAMES
 2f022f995b92  quay.io/rh_sa_bsahu/mywebapp:latest  httpd-foreground  About a minute ago  Up About a minute ago  0.0.0.0:808
 0->80/tcp  mywebapp-demo
----
+----
 
 === Check if the web service is accessible using curl:
 
@@ -276,7 +276,7 @@ curl -N localhost:8080
 [{format_cmd_output}]
 ----
 <html><body><h1>Welcome to my web service</h1></body></html>
----
+----
 
 === Create a systemd service to get it started after system reboot automatically:
 
@@ -286,7 +286,7 @@ Create a systemd service file to manage the `mywebapp-demo` container.
 ----
 mkdir -p ~/.config/systemd/user/
 cd ~/.config/systemd/user
----
+----
 
 Create the unit file for the `mywebapp-demo` container.
 
@@ -298,7 +298,7 @@ podman generate systemd --name mywebapp-demo --files --new
 [{format_cmd_output}]
 ----
 /home/student/.config/systemd/user/container-mywebapp-demo.service
----
+----
 
 Stop the `mywebapp-demo` container.
 
@@ -311,7 +311,7 @@ podman stop mywebapp-demo
 ----
 [student@node3 user]$ podman stop mywebapp-demo
 mywebapp-demo
----
+----
 
 Delete the `mywebapp-demo` container.
 
