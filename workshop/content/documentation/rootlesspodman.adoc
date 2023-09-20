@@ -596,6 +596,12 @@ Connection to node3 closed by remote host.
 Connection to node3 closed.
 ----
 
+== Conclusion
+
+This concludes the exercises related to podman.
+
+
+
 
 
 
