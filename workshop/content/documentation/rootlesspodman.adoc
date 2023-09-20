@@ -1,4 +1,4 @@
-
+sudo systemctl reboot
 = Rootless Podman Container Fundamentals
 
 == Overview
@@ -440,7 +440,7 @@ IdleHint=no
 IdleSinceHint=1695225427284535
 IdleSinceHintMonotonic=77239965832
 Linger=yes
----
+----
 
 {format_cmd_exec}]
 ----
