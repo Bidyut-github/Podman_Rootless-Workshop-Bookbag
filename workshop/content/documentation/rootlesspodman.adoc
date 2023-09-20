@@ -1,4 +1,3 @@
-sudo systemctl reboot
 = Rootless Podman Container Fundamentals
 
 == Overview
