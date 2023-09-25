@@ -1,38 +1,14 @@
 
 # Running a Rootless Container With Podman, Buildah, and Skopeo on RHEL
 
-
-## 1. Create user adamz:
-
-
-
-
-
-```bash
-useradd adamz
-passwd adamz
-
-usermod -aG wheel adamz
-
-
-```
-*use “redhat” for password*
-    
-## 2. Validate adamz exists and login/verify the user access:
-
-```bash
-id adamz
-ssh adamz@bastion
-
-```
-## 3. Download podman, buildah, skopeo and check versions:
+## 1. Download podman, buildah, skopeo and check versions:
 ```bash
 sudo yum install -y buildah podman skopeo
 buildah --version
 podman --version
 skopeo --version
 ```
-## 4. Create an image from a container file (simple httpd web service):
+## 2. Create an image from a container file (simple httpd web service):
 
 Create a new container from httpd
 ```bash
@@ -56,34 +32,34 @@ Commit the changes to an image named mywebapp
 ```bash
 buildah commit $container mywebapp
 ```
-## 5. Push to registry:
+## 3. Push to registry:
 ```bash
 buildah login quay.io
-buildah push mywebapp:latest docker://quay.io/azabloud/mywebapp:latest
+buildah push mywebapp:latest docker://quay.io/<Quay Username>/mywebapp:latest
 ```
 
-## 6. Create the container by pulling the image from registry:
+## 4. Create the container by pulling the image from registry:
 
 Inspect the image in the repository before pulling
 ```bash
-skopeo inspect docker://quay.io/azabloud/mywebapp:latest
+skopeo inspect docker://quay.io/<Quay Username>/mywebapp:latest
 ```
 
 Pull the image from the repository and run it
 
 ```bash
-podman pull quay.io/azabloud/mywebapp:latest
-podman run -d --name mywebapp-demo -p 8080:80 quay.io/azabloud/mywebapp:latest
+podman pull quay.io/<Quay Username>/mywebapp:latest
+podman run -d --name mywebapp-demo -p 8080:80 quay.io/<Quay Username>/mywebapp:latest
 ```
-## 7. Check the status:
+## 5. Check the status:
 ```bash
 podman ps
 ```
-## 8. Check if the web service is accessible using curl:
+## 6. Check if the web service is accessible using curl:
 ```bash
 curl -N localhost:8080
 ```
-## 9. Create a systemd service to get it started after system reboot automatically:
+## 7. Create a systemd service to get it started after system reboot automatically:
 
 Create a systemd service file to manage the `mywebapp-demo` container
 
@@ -145,7 +121,7 @@ sudo systemctl reboot
 Log back in and verify that the systemd daemon started the `mywebapp-demo` container, and that the web content is available.
 
 ```bash
-ssh adamz@bastion
+ssh node1
 podman ps
 curl http://localhost:8080
 
@@ -158,6 +134,5 @@ To clear containers and user:
 podman rm -af
 podman rmi -af
 exit
-pkill -9 -u adamz
-userdel -r adamz
+pkill -9 -u student
 ```
