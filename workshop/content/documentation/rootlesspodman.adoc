@@ -78,17 +78,19 @@ Podman is a fully featured container engine from the container-tools meta-packag
 The container-tools meta-package contains required utilities to interact with containers and container images.
 Here is a list of the fundamental podman commands and their purpose:
 
-  * *podman images* - list images
-  * *podman ps* - lists running containers
-  * *podman pull* - pulls (copies) container image from repository (ie: redhat and/or docker hub)
-  * *podman run* - run a container
-  * *podman inspect* - view facts about a container
-  * *podman logs* - display logs of a container (can be used with --follow)
-  * *podman rm* - remove one or more containers
-  * *podman rmi* - remove one or more images
-  * *podman stop* - stops one or more containers
-  * *podman kill $(podman ps -q)* - kill all running containers
-  * *podman rm $(podman ps -a -q)* - deletes all stopped containers
+  * *buildah-from* - Creates  a  new working container, either from scratch or using a specified image as a starting point.
+  * *buildah-run* - Run a command inside of the container.
+  * *buildah-commit* - Create an image from a working container.
+  * *buildah-login* - Login to a container registry.
+  * *buildah-push* - Push an image, manifest list or image index from local storage to elsewhere.
+  * *skopeo-inspect* - Return low-level information about image-name in a registry.
+  * *podman-pull* - Pull an image from a registry.
+  * *podman-run* - Run a command in a new container.
+  * *podman-ps* - Prints out information about containers.
+  * *podman generate* - Generate structured data based on containers, pods or volumes.
+  * *podman-stop* - Stop one or more running containers.
+  * *podman-rm* - Remove one or more containers.
+  * *podman-rmi* - Removes one or more locally stored images.
 
 == Exercise: Basic Information
 
