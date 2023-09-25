@@ -50,30 +50,6 @@ Use sudo to escalate your user priviledges and run the setup:
 sudo -i
 ----
 
-== Set Up Terminal 2
-
-Like wise, let us proceed to set up the second terminal for use later.
-
-[{format_cmd_exec2}]
-----
-{ssh_command} -o "StrictHostKeyChecking no"
-----
-
-[{format_cmd_exec2}]
-----
-{ssh_password}
-----
-
-[{format_cmd_exec2}]
-----
-workshop-tmux.sh TERM2
-----
-
-[{format_cmd_exec2}]
-----
-sudo -i
-----
-
 You are now ready to proceed with the exercises.
 
 
