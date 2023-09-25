@@ -5,7 +5,7 @@ modules:
     exit_sign: "Workshop Overview"
   overview:
     name:      "Workshop Overview"
-    exit_sign: "Web Console (cockpit)"
+    exit_sign: "Rootless Podman"
   documentation/rootlesspodman:
     name:      "Rootless Podman"
     exit_sign: "Finish Workshop"
