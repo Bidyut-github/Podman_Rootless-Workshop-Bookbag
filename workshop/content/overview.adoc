@@ -6,17 +6,15 @@
 [discrete]
 == Presented By
 
-  * Christoph Doerbeck
-  * Eddie Chen
-  * Gordon Keegan
-  * Lynn Dixon
+  * Ahsen Shah
+  * Josh Disraeli
+  * Bidyut Prabha Sahu
 
 == Overview
 
-First of all, THANK YOU for registering and participating in *The Definitive Red Hat Enterprise Linux 9 Hands-on Lab*.  
-This hands-on lab will lead you through a mix of self-paced and proctored exercises covering core and updated capabilities of RHEL 9.
-The lab team has worked very hard to assemble a series of exercises to introduce many of the new features and capabilities 
-found in this release.  We hope you enjoy this experience and please don't hesitate to ask questions.  
+First of all, THANK YOU for registering and participating in *The Rootless Podman Red Hat Enterprise Linux 9 Hands-on Lab*.  
+This hands-on lab will lead you through a mix of self-paced and proctored exercises covering how to build, run and manage podman rootless container using podman, skopeo and buildah on rhel 9.
+We hope you enjoy this experience and please don't hesitate to ask questions.  
 
 === Words of Caution
 
@@ -42,7 +40,6 @@ Exercises in this workshop require either:
 
   * shell access (via ssh)
   * shell access (via bookbag)
-  * web gui access (via web console)
 
 You can use the convenient shell provided to the right of these instructions (bookbag), or if you prefer you can use your preferred ssh client with the same connectivity info.  Your choice...
 
@@ -52,9 +49,6 @@ There are 5 systems:
 
   * bastion - primary system and launch point to other hosts
   * node1
-  * node2
-  * node3
-  * leapp
 
 The network domain is likely `example.com` but not necessarily so.  We expect most exercises and envionments will work by using the short hostnames.  So when asked to use `node1` for a unit:
 
