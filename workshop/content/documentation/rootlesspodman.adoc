@@ -34,18 +34,19 @@ Exit to become student user.
 exit
 ----
 
-ssh node3.
+ssh node1.
 
 [{format_cmd_exec}]
 ----
-ssh node3
+ssh node1
 ----
 
 
 [{format_cmd_output}]
 ----
+[student@bastion ~]$ ssh node1
 # ---------------
-#  Host FQDN : node3.sdcvg.internal
+#  Host FQDN : node1.rfnsq.internal
 # OS Version : RedHat 9.1
 # ---------------
 Activate the web console with: systemctl enable --now cockpit.socket
@@ -232,11 +233,11 @@ Password:
 Login Succeeded!
 ----
 
-Push the image to registry using "buildah push mywebapp:latest docker://quay.io/<your quay user name>/mywebapp:latest"
+Push the image to registry using "buildah push mywebapp:latest docker://quay.io/<your Quay Username>/mywebapp:latest"
 
 [{format_cmd_output}]
 ----
-[student@node3 ~]$ buildah push mywebapp:latest docker://quay.io/rh_sa_bsahu/mywebapp:latest
+[student@node1 ~]$ buildah push mywebapp:latest docker://quay.io/rh_sa_bsahu/mywebapp:latest
 Getting image source signatures
 Copying blob 137ba5ba7d2b done
 Copying blob d310e774110a done
@@ -253,11 +254,11 @@ Storing signatures
 
 Inspect the image in the repository before pulling.
 
-Execute skopeo inspect docker://quay.io/<your Quay userid>/mywebapp:latest
+Execute skopeo inspect docker://quay.io/<your Quay Username>/mywebapp:latest
 
 [{format_cmd_output}]
 ----
-[student@node3 ~]$ skopeo inspect docker://quay.io/rh_sa_bsahu/mywebapp:latest|more
+[student@node1 ~]$ skopeo inspect docker://quay.io/rh_sa_bsahu/mywebapp:latest|more
 {
     "Name": "quay.io/rh_sa_bsahu/mywebapp",
     "Digest": "sha256:d18f4581d94c384a4c3037faeaeaad14e1cc09f84045ddccb376bc2964c980a2",
@@ -274,11 +275,11 @@ Execute skopeo inspect docker://quay.io/<your Quay userid>/mywebapp:latest
 
 Pull the image from the repository.
 
-Execute podman pull quay.io/<your Quay user id>/mywebapp:latest
+Execute podman pull quay.io/<your Quay Username>/mywebapp:latest
 
 [{format_cmd_output}]
 ----
-[student@node3 ~]$ podman pull quay.io/rh_sa_bsahu/mywebapp:latest
+[student@node1 ~]$ podman pull quay.io/rh_sa_bsahu/mywebapp:latest
 Trying to pull quay.io/rh_sa_bsahu/mywebapp:latest...
 Getting image source signatures
 Copying blob cb14fc300c63 skipped: already exists
@@ -291,16 +292,16 @@ Copying config 35e86afe15 done
 Writing manifest to image destination
 Storing signatures
 35e86afe15b0cd5fc52f8f42d57bc1964cba4afe899c336a00f0ed5640091f01
-[student@node3 ~]$
+[student@node1 ~]$
 ----
 
 Run it.
 
-Execute podman run -d --name mywebapp-demo -p 8080:80 quay.io/<Your Quay user id>/mywebapp:latest
+Execute podman run -d --name mywebapp-demo -p 8080:80 quay.io/your Quay Username>/mywebapp:latest
 
 [{format_cmd_output}]
 ----
-[student@node3 ~]$ podman run -d --name mywebapp-demo -p 8080:80 quay.io/rh_sa_bsahu/mywebapp:latest
+[student@node1 ~]$ podman run -d --name mywebapp-demo -p 8080:80 quay.io/rh_sa_bsahu/mywebapp:latest
 2f022f995b92f7e225a9e303fc875b4e49c6e55b55c00fe5844069149a536df2
 ----
 
@@ -362,7 +363,7 @@ podman stop mywebapp-demo
 
 [{format_cmd_output}]
 ----
-[student@node3 user]$ podman stop mywebapp-demo
+[student@node1 user]$ podman stop mywebapp-demo
 mywebapp-demo
 ----
 
@@ -375,9 +376,9 @@ podman rm mywebapp-demo
 
 [{format_cmd_output}]
 ----
-[student@node3 user]$ podman rm mywebapp-demo
+[student@node1 user]$ podman rm mywebapp-demo
 2f022f995b92f7e225a9e303fc875b4e49c6e55b55c00fe5844069149a536df2
-[student@node3 user]$
+[student@node1 user]$
 ----
 
 Reload the systemd daemon configuration.
@@ -396,7 +397,7 @@ systemctl --user enable --now container-mywebapp-demo
 
 [{format_cmd_output}]
 ----
-[student@node3 user]$ systemctl --user enable --now container-mywebapp-demo
+[student@node1 user]$ systemctl --user enable --now container-mywebapp-demo
 Created symlink /home/student/.config/systemd/user/default.target.wants/container-mywebapp-demo.service → /home/student/.co
 nfig/systemd/user/container-mywebapp-demo.service.
 ----
@@ -477,7 +478,7 @@ oginctl show-user student
 
 [{format_cmd_output}]
 ----
-[student@node3 user]$ loginctl show-user student
+[student@node1 user]$ loginctl show-user student
 UID=1001
 GID=1001
 Name=student
@@ -502,25 +503,25 @@ sudo systemctl reboot
 
 [{format_cmd_output}]
 ----
-Connection to node3 closed.
+Connection to node1 closed.
 ----
 
 Log back in and verify that the systemd daemon started the `mywebapp-demo` container, and that the web content is available.
 
 [{format_cmd_exec}]
 ----
-ssh node3
+ssh node1
 ----
 
 [{format_cmd_output}]
 ----
 # ---------------
-#  Host FQDN : node3.sdcvg.internal
+#  Host FQDN : node1.rfnsq.internal
 # OS Version : RedHat 9.1
 # ---------------
-Web console: https://node3.sdcvg.internal:9090/ or https://192.168.0.168:9090/
+Web console: https://node1.rfnsq.internal:9090/ or https://192.168.0.108:9090/
 
-Last login: Wed Sep 20 15:02:00 2023 from 192.168.0.147
+Last login: Mon Sep 25 17:15:43 2023 from 192.168.0.93
 ----
 
 [{format_cmd_exec}]
@@ -592,8 +593,8 @@ pkill -9 -u student
 
 [{format_cmd_output}]
 ----
-Connection to node3 closed by remote host.
-Connection to node3 closed.
+Connection to node1 closed by remote host.
+Connection to node1 closed.
 ----
 
 == Conclusion
