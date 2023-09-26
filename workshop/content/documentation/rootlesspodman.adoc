@@ -475,7 +475,7 @@ loginctl enable-linger
 
 [{format_cmd_exec}]
 ----
-oginctl show-user student
+loginctl show-user student
 ----
 
 [{format_cmd_output}]
