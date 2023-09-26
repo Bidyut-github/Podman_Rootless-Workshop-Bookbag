@@ -36,13 +36,6 @@ Send the password:
 {ssh_password}
 ----
 
-Launch a 'tmux' (terminal multiplexer):
-
-[{format_cmd_exec}]
-----
-workshop-tmux.sh TERM1 
-----
-
 Use sudo to escalate your user priviledges and run the setup:
 
 [{format_cmd_exec}]
