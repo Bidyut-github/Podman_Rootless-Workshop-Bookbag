@@ -44,7 +44,7 @@ You can use the convenient shell provided to the right of these instructions (bo
 
 Activities in this workshop are performed on virtual machines running in a public cloud.  Each attendee has received their own unique environment and will be provided administrator priviledges when needed.
 
-There are 5 systems:
+There are 3 systems:
 
   * bastion - primary system and launch point to other hosts
   * node1
