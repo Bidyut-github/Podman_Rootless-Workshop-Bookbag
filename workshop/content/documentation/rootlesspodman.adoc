@@ -264,7 +264,7 @@ Execute skopeo inspect docker://quay.io/<your Quay Username>/mywebapp:latest
 
 [{format_cmd_output}]
 ----
-[student@node1 ~]$ skopeo inspect docker://quay.io/rh_sa_bsahu/mywebapp:latest|more
+[student@node1 ~]$ skopeo inspect docker://quay.io/rh_sa_bsahu/mywebapp:latest
 {
     "Name": "quay.io/rh_sa_bsahu/mywebapp",
     "Digest": "sha256:d18f4581d94c384a4c3037faeaeaad14e1cc09f84045ddccb376bc2964c980a2",
@@ -516,18 +516,20 @@ Log back in and verify that the systemd daemon started the `mywebapp-demo` conta
 
 [{format_cmd_exec}]
 ----
-ssh node1
+ssh student@node1
 ----
 
 [{format_cmd_output}]
 ----
-# ---------------
-#  Host FQDN : node1.rfnsq.internal
-# OS Version : RedHat 9.1
-# ---------------
-Web console: https://node1.rfnsq.internal:9090/ or https://192.168.0.108:9090/
+[student@bastion ~]$ ssh student@node1
+student@node1's password:
+----
 
-Last login: Mon Sep 25 17:15:43 2023 from 192.168.0.93
+Send the password:
+
+[{format_cmd_exec}]
+----
+{ssh_password}
 ----
 
 [{format_cmd_exec}]
