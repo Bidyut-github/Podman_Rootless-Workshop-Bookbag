@@ -1,5 +1,6 @@
 :sectnums:
 :sectnumlevels: 3
+:ssh_password: %ssh_password%
 :markup-in-source: verbatim,attributes,quotes
 ifdef::env-github[]
 :tip-caption: :bulb:
