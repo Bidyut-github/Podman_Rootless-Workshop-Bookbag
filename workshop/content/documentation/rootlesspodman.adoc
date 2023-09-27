@@ -72,6 +72,7 @@ Red Hat Enterprise Linux provides a set of container tools that you can use to r
  * podman is a container runtime and command-line tool that manages containers and container images.
  * skopeo inspects, copies, deletes, and signs images.
  * buildah creates container images.
+
 These tools are compatible with the Open Container Initiative (OCI). With these tools, you can manage any Linux containers that OCI-compatible container engines create, such as Podman or Docker. These tools are designed to run containers under Red Hat Enterprise Linux on a single-node container host.
 
 Podman is a fully featured container engine from the container-tools meta-package to manage Open Container Initiative (OCI) containers and images.
