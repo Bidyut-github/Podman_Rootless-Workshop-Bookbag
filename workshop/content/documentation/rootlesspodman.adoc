@@ -34,22 +34,25 @@ Exit to become student user.
 exit
 ----
 
-ssh node1.
+ssh student@node1.
 
 [{format_cmd_exec}]
 ----
-ssh node1
+ssh student@node1
 ----
 
 
 [{format_cmd_output}]
 ----
-[student@bastion ~]$ ssh node1
-# ---------------
-#  Host FQDN : node1.rfnsq.internal
-# OS Version : RedHat 9.1
-# ---------------
-Activate the web console with: systemctl enable --now cockpit.socket
+[student@bastion ~]$ ssh student@node1
+student@node1's password:
+----
+
+Send the password:
+
+[{format_cmd_exec}]
+----
+{ssh_password}
 ----
 
 You are now ready to proceed with these exercises.
